@@ -72,6 +72,9 @@ scantest: scantest.o compiler.o misc.o $(KVTREES) libjson.a
 unit-mt: unit-mt.o compiler.o misc.o libjson.a
 	$(CXX) $(CXXFLAGS) -o $@ $^ $(MEMMGR) $(LDFLAGS) $(LIBS)
 
+perftest: perftest.o compiler.o misc.o libjson.a
+	$(CXX) $(CXXFLAGS) -o $@ $^ $(MEMMGR) $(LDFLAGS) $(LIBS) -lgflags
+
 config.h: stamp-h
 
 GNUmakefile: GNUmakefile.in config.status
